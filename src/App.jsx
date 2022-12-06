@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import Header from "./Components/Headers";
@@ -17,13 +17,15 @@ function App() {
 
     return (
         <BrowserRouter>
-            <div className={classes.App}>
-                <Header />
-                <Routes>
-                    <Route path={"/"} element={<HomePage />} />
-                    <Route path={"/coins/:id"} element={<CoinsPage />} />
-                </Routes>
-            </div>
+            <Suspense fallback={<div>Loading... </div>}>
+                <div className={classes.App}>
+                    <Header />
+                    <Routes>
+                        <Route path={"/"} element={<HomePage />} />
+                        <Route path={"/coins/:id"} element={<CoinsPage />} />
+                    </Routes>
+                </div>
+            </Suspense>
         </BrowserRouter>
     );
 }

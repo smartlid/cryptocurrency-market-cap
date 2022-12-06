@@ -55,7 +55,6 @@ const Headers = () => {
                         >
                             <MenuItem value={"USD"}>USD</MenuItem>
                             <MenuItem value={"EUR"}>EUR</MenuItem>
-                            <MenuItem value={"INR"}>INR</MenuItem>
                         </Select>
                     </Toolbar>
                 </Container>
